@@ -33,7 +33,7 @@ public class Frame extends javax.swing.JFrame {
      */
     public void configureFrame() {
     	setTitle("*-Product-Stock-Management-*");
-    	setIconImage(Toolkit.getDefaultToolkit().getImage("/home/amolixs/Downloads/icons8-vendre-les-stock-filled-24.png"));
+    	setIconImage(Toolkit.getDefaultToolkit().getImage(""));
     	setResizable(false);
     	setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
@@ -81,19 +81,19 @@ public class Frame extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon("/home/amolixs/Downloads/icons8-vendre-les-stock-filled-100.png"));
 
-        addButton.setIcon(new javax.swing.ImageIcon("/home/amolixs/Downloads/icons8-plus-filled-20.png"));
+        addButton.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("/img/icons8-plus-filled-20.png")));
         addButton.setText("Ajouter");
 
-        updateButton.setIcon(new javax.swing.ImageIcon("/home/amolixs/Downloads/icons8-approuver-et-mettre-à-jour-filled-20.png"));
+        updateButton.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("/img/icons8-approuver-et-mettre-à-jour-filled-20.png")));
         updateButton.setText("Modifié");
 
-        deleteButton.setIcon(new javax.swing.ImageIcon("/home/amolixs/Downloads/icons8-annuler-filled-20.png")); 
+        deleteButton.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("/img/icons8-annuler-filled-20.png"))); 
         deleteButton.setText("Supprimé");
 
-        displayButton.setIcon(new javax.swing.ImageIcon("/home/amolixs/Downloads/icons8-télévision-filled-20.png"));
+        displayButton.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("/img/icons8-télévision-filled-20.png")));
         displayButton.setText("Affiché");
 
-        quitButton.setIcon(new javax.swing.ImageIcon("/home/amolixs/Downloads/icons8-sortie-filled-20.png"));
+        quitButton.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("/img/icons8-sortie-filled-20.png")));
         quitButton.setText("Quitter");
         quitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
