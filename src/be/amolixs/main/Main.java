@@ -16,7 +16,6 @@ public class Main {
 	 * 		Tableau contenant les arguments passé au programme
 	 */
 	public static void main(String[] args) {
-		Frame fr = new Frame();
-		fr.setVisible(true);
+		Frame frame = new Frame();
 	}
 }

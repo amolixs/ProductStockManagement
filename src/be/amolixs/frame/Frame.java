@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package be.amolixs.frame;
 
 import java.awt.Toolkit;
@@ -10,7 +5,7 @@ import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Classe qui permet de gérer la fenetre
  * @author amolixs
  */
 public class Frame extends javax.swing.JFrame {
@@ -22,23 +17,31 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JButton quitButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar menuBar;
-    // End of variables declaration   
-
+    
+    
     /**
-     * Creates new form Main
+     * Constructeur.
+     * @author amolixs
      */
     public Frame() {
         initComponents();
-    }
-    
-    public void configureFrame() {
-    	setTitle("*-Product-Stock-Management-*");
-    	setIconImage(Toolkit.getDefaultToolkit().getImage("/home/amolixs/Downloads/icons8-vendre-les-stock-filled-24.png"));
+        setVisible(true);
     }
     
     /**
+     * Méthode qui permet de configurer la fenetre
      * @author amolixs
+     */
+    public void configureFrame() {
+    	setTitle("*-Product-Stock-Management-*");
+    	setIconImage(Toolkit.getDefaultToolkit().getImage("/home/amolixs/Downloads/icons8-vendre-les-stock-filled-24.png"));
+    	setResizable(false);
+    	setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
+    
+    /**
      * Méthode qui permet de récupérer le résultat du popup pour la fermeture de la fenetre
+     * @author amolixs
      * @return
      * 		La réponse de l'utilisateur
      */
@@ -48,8 +51,8 @@ public class Frame extends javax.swing.JFrame {
     }
     
     /**
-     * @author amolixs
      * Méthode qui permet de vérifier si l'utilisateur veut bien fermé la fenetre ou non
+     * @author amolixs
      * @return
      * 		True si l'utilisateur veut quitter la fenetre
      */
@@ -62,7 +65,10 @@ public class Frame extends javax.swing.JFrame {
     }
 
     
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    /**
+     * Méthode qui permet d'initalisé les composants
+     * @author amolixs                      
+     */
     private void initComponents() {
     	configureFrame();
         jLabel1 = new javax.swing.JLabel();
@@ -74,21 +80,21 @@ public class Frame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("/home/amolixs/Downloads/icons8-vendre-les-stock-filled-100.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("/home/amolixs/Downloads/icons8-vendre-les-stock-filled-100.png"));
 
-        addButton.setIcon(new javax.swing.ImageIcon("/home/amolixs/Downloads/icons8-plus-filled-20.png")); // NOI18N
+        addButton.setIcon(new javax.swing.ImageIcon("/home/amolixs/Downloads/icons8-plus-filled-20.png"));
         addButton.setText("Ajouter");
 
-        updateButton.setIcon(new javax.swing.ImageIcon("/home/amolixs/Downloads/icons8-approuver-et-mettre-à-jour-filled-20.png")); // NOI18N
+        updateButton.setIcon(new javax.swing.ImageIcon("/home/amolixs/Downloads/icons8-approuver-et-mettre-à-jour-filled-20.png"));
         updateButton.setText("Modifié");
 
-        deleteButton.setIcon(new javax.swing.ImageIcon("/home/amolixs/Downloads/icons8-annuler-filled-20.png")); // NOI18N
+        deleteButton.setIcon(new javax.swing.ImageIcon("/home/amolixs/Downloads/icons8-annuler-filled-20.png")); 
         deleteButton.setText("Supprimé");
 
-        displayButton.setIcon(new javax.swing.ImageIcon("/home/amolixs/Downloads/icons8-télévision-filled-20.png")); // NOI18N
+        displayButton.setIcon(new javax.swing.ImageIcon("/home/amolixs/Downloads/icons8-télévision-filled-20.png"));
         displayButton.setText("Affiché");
 
-        quitButton.setIcon(new javax.swing.ImageIcon("/home/amolixs/Downloads/icons8-sortie-filled-20.png")); // NOI18N
+        quitButton.setIcon(new javax.swing.ImageIcon("/home/amolixs/Downloads/icons8-sortie-filled-20.png"));
         quitButton.setText("Quitter");
         quitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
