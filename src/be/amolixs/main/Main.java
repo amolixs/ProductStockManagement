@@ -1,6 +1,6 @@
 package be.amolixs.main;
 
-import be.amolixs.frame.Frame;
+import be.amolixs.app.Application;
 
 /**
  * Classe principal.
@@ -16,6 +16,7 @@ public class Main {
 	 * 		Tableau contenant les arguments passé au programme
 	 */
 	public static void main(String[] args) {
-		Frame frame = new Frame();
+		Application app = new Application();
+		app.run();
 	}
 }
