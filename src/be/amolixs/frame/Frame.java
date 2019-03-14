@@ -142,7 +142,6 @@ public class Frame extends javax.swing.JFrame {
                 .addComponent(quitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
         pack();
     }                                       
 }
