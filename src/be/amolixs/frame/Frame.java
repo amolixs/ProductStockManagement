@@ -6,14 +6,16 @@
 package be.amolixs.frame;
 
 import java.awt.Toolkit;
-import javax.swing.ImageIcon;
+
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author amolixs
  */
 public class Frame extends javax.swing.JFrame {
-    private javax.swing.JButton addButton;
+	private static final long serialVersionUID = 1L;
+	private javax.swing.JButton addButton;
     private javax.swing.JButton updateButton;
     private javax.swing.JButton deleteButton;
     private javax.swing.JButton displayButton;
@@ -33,8 +35,33 @@ public class Frame extends javax.swing.JFrame {
     	setTitle("*-Product-Stock-Management-*");
     	setIconImage(Toolkit.getDefaultToolkit().getImage("/home/amolixs/Downloads/icons8-vendre-les-stock-filled-24.png"));
     }
+    
+    /**
+     * @author amolixs
+     * Méthode qui permet de récupérer le résultat du popup pour la fermeture de la fenetre
+     * @return
+     * 		La réponse de l'utilisateur
+     */
+    public int getVerifQuitDIalogResult() {
+    	int verifQuitDialogResult = JOptionPane.showConfirmDialog(null, "Etes-vous sur de vouloir quitter ?");
+    	return verifQuitDialogResult;
+    }
+    
+    /**
+     * @author amolixs
+     * Méthode qui permet de vérifier si l'utilisateur veut bien fermé la fenetre ou non
+     * @return
+     * 		True si l'utilisateur veut quitter la fenetre
+     */
+    public boolean verifQuitFrame() {
+    	int dialogResult = getVerifQuitDIalogResult();
+    	if (dialogResult == JOptionPane.YES_OPTION) 
+    		return true;
+    	else
+    		return false;
+    }
 
-    @SuppressWarnings("unchecked")
+    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
     	configureFrame();
@@ -65,7 +92,10 @@ public class Frame extends javax.swing.JFrame {
         quitButton.setText("Quitter");
         quitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                setVisible(false);
+            	if (verifQuitFrame())
+            		setVisible(false);
+            	else
+            		setVisible(true);
             }
         });
 
@@ -109,5 +139,5 @@ public class Frame extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>                                        
+    }                                       
 }
