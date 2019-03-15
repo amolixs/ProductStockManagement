@@ -79,7 +79,7 @@ public class Frame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("/home/amolixs/Downloads/icons8-vendre-les-stock-filled-100.png"));
+        jLabel1.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("/img/icons8-vendre-les-stock-filled-100.png")));
 
         addButton.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("/img/icons8-plus-filled-20.png")));
         addButton.setText("Ajouter");
