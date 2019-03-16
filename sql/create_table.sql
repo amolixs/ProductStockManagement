@@ -8,7 +8,7 @@ création des tables pour le project gestion de stock
 CREATE TABLE IF NOT EXISTS Product
 (
 	-- id
-	id INT PRIMARY KEY NOT NULL,
+	id INT PRIMARY KEY,
 	
 	-- Nom du produit
 	name VARCHAR(20) NOT NULL,

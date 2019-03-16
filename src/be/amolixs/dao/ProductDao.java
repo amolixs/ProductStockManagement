@@ -22,7 +22,7 @@ public class ProductDao {
 	 * Boolean pour savoir si le produit est une boisson ou non
 	 * @author amolixs
 	 */
-	boolean isADrink;
+	private String isADrink;
 	
 	/**
 	 * L'origine du produit(pays)
@@ -43,7 +43,7 @@ public class ProductDao {
 	public ProductDao() {
 		this.name = "";
 		this.price = 0;
-		this.isADrink = false;
+		this.isADrink = "false";
 		this.origin = "";
 		this.pathImage = "";
 	}
@@ -68,14 +68,6 @@ public class ProductDao {
 	}
 	
 	/**
-	 * Constructeur qui permet d'initalisé si le produit est une boisson ou non
-	 * @param isADrink
-	 */
-	public ProductDao(boolean isADrink) {
-		this.isADrink = isADrink;
-	}
-	
-	/**
 	 * Méthode qui permet d'initialisé le nom su produit
 	 * @author amolixs
 	 * @param name
@@ -94,11 +86,14 @@ public class ProductDao {
 	 * 		L'origin du produit
 	 * @param pathImage
 	 * 		Le chemin pour l'image
+	 * @param isADrink
+	 * 		Boolean sous forme de string pou savoir si le produit est buvable ou non
 	 */
-	public ProductDao(String name, String origin, String pathImage) {
+	public ProductDao(String name, String origin, String pathImage, String isADrink) {
 		this.name = name;
 		this.origin = origin;
 		this.pathImage = pathImage;
+		this.isADrink = isADrink;
 	}
 	
 	/****************************************************\
@@ -145,6 +140,15 @@ public class ProductDao {
 		return price;
 	}
 	
+	/**
+	 * Guetteur qui permet de retourné si le produit est buvable ou non
+	 * @author amolixs
+	 * @return
+	 */
+	public String getIsADrink() {
+		return isADrink;
+	}
+	
 	/****************************************************\
 	 
 						SUETTEURS
@@ -157,7 +161,7 @@ public class ProductDao {
 	 * @param isADrink
 	 * 		L'attribut isADrink
 	 */
-	public void setADrink(boolean isADrink) {
+	public void setADrink(String isADrink) {
 		this.isADrink = isADrink;
 	}
 	

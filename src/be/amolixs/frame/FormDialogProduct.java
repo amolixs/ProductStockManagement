@@ -1,5 +1,10 @@
 package be.amolixs.frame;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import be.amolixs.dao.ProductEditorDao;
+
 /**
  * Classe qui permet de gérer la fenetre de formulaire pour la création d'un produit
  * @author amolixs
@@ -84,12 +89,18 @@ public class FormDialogProduct extends javax.swing.JFrame {
      */
     private javax.swing.JCheckBox checkButtonIsADrink;
     
+    /**
+     * Object de type productEditorDao
+     * @author amolixs
+     */
+    private ProductEditorDao productEditorDao;
 
     /**
      * Constructeur
      * @author amolixs
      */
     public FormDialogProduct() {
+    	init();
     	configureFrame();
         initComponents();
     }
@@ -102,6 +113,14 @@ public class FormDialogProduct extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         setTitle("*-Create product-*");
+    }
+    
+    /**
+     * Méthode qui permet d'initialisé les attributs
+     * @author amolixs
+     */
+    public void init() {
+    	this.productEditorDao = new ProductEditorDao();
     }
     
     /**
@@ -145,11 +164,32 @@ public class FormDialogProduct extends javax.swing.JFrame {
 
         createButton.setText("Créer");
         createButton.setToolTipText("");
+        
+        /******************************************\
+         * 
+         * 				ACTIONS
+         * 
+        \******************************************/
         createButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+            	String nameProduct = textFieldName.getText();
+            	String originProduct = textFieldOrigin.getText();
+            	String pathFileImage = "";
+            	String isADrink = "";
+            	int priceProduct = Integer.parseInt(textFieldPrice.getText());
+            	if (checkButtonIsADrink.isSelected())
+            		isADrink = "true";
+            	else
+            		isADrink = "false";
+            	productEditorDao.add(nameProduct, priceProduct, originProduct, isADrink, pathFileImage);
             }
         });
+        
+        quitButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				setVisible(false);
+			}
+		});
         
         quitButton.setText("Quitter");
         drinkLabel.setText(" Buvable : ");
@@ -233,9 +273,5 @@ public class FormDialogProduct extends javax.swing.JFrame {
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
-    }                                           
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
-    }                                        
+    }                                                                              
 }

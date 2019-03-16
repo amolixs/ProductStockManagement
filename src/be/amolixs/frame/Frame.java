@@ -114,10 +114,12 @@ public class Frame extends javax.swing.JFrame {
         \******************************************/
         quitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-            	if (verifQuitFrame())
+            	if (verifQuitFrame()) {
             		setVisible(false);
-            	else
+            		System.exit(0);
+            	}else{
             		setVisible(true);
+            	}
             }
         });
         

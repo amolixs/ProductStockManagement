@@ -57,7 +57,7 @@ public class DaoFactory {
 			e.printStackTrace();
 		}
 		
-		DaoFactory instance = new DaoFactory("jdbc:mysql://localhost:3306/product", "root", "root");
+		DaoFactory instance = new DaoFactory("jdbc:mysql://localhost/ProductStock", "amolixs", "root");
 		return instance;
 	}
 	
