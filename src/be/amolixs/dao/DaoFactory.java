@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import javax.swing.text.Utilities;
-
 /**
  * Classe qui permet d'initialisé la connexion à la base de donnée
  * @version 1.0
@@ -54,7 +52,7 @@ public class DaoFactory {
 	 */
 	public static DaoFactory getInstance() {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
