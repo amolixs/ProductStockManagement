@@ -3,6 +3,9 @@ package be.amolixs.frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 import be.amolixs.dao.ProductEditorDao;
 
 /**
@@ -94,6 +97,12 @@ public class FormDialogProduct extends javax.swing.JFrame {
      * @author amolixs
      */
     private ProductEditorDao productEditorDao;
+    
+    /**
+     * Contient le chemin pour l'image du produit
+     * @author amolixs
+     */
+    private String pathFileImg;
 
     /**
      * Constructeur
@@ -174,7 +183,7 @@ public class FormDialogProduct extends javax.swing.JFrame {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
             	String nameProduct = textFieldName.getText();
             	String originProduct = textFieldOrigin.getText();
-            	String pathFileImage = "";
+            	String pathFileImage = pathFileImg;
             	String isADrink = "";
             	int priceProduct = Integer.parseInt(textFieldPrice.getText());
             	if (checkButtonIsADrink.isSelected())
@@ -184,6 +193,18 @@ public class FormDialogProduct extends javax.swing.JFrame {
             	productEditorDao.add(nameProduct, priceProduct, originProduct, isADrink, pathFileImage);
             }
         });
+        
+        buttonImg.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				JFileChooser fileChooser = new JFileChooser();
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG & PNG", "png", "jpg");
+				fileChooser.setFileFilter(filter);
+				int returnVal = fileChooser.showOpenDialog(null);
+				if (returnVal == JFileChooser.APPROVE_OPTION) {
+					pathFileImg = fileChooser.getSelectedFile().getPath().toString();
+				}
+			}
+		});
         
         quitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {

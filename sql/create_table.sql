@@ -23,5 +23,5 @@ CREATE TABLE IF NOT EXISTS Product
 	origin VARCHAR(20) NOT NULL,
 	
 	-- Chemin pour l'image du produit
-	pathImage VARCHAR(50) NOT NULL
+	pathImage VARCHAR(200) NOT NULL
 );
