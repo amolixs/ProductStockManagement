@@ -1,6 +1,8 @@
 package be.amolixs.frame;
 
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
@@ -16,7 +18,7 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JButton displayButton;
     private javax.swing.JButton quitButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenuBar menuBar;
+    private FormDialogProduct formDialogProduct;
     
     
     /**
@@ -24,7 +26,16 @@ public class Frame extends javax.swing.JFrame {
      * @author amolixs
      */
     public Frame() {
+    	init();
         initComponents();
+    }
+    
+    /**
+     * Méthode qui permet d'initialisé les attributs
+     * @author amolixs
+     */
+    public void init() {
+    	this.formDialogProduct = new FormDialogProduct();
     }
     
     /**
@@ -95,6 +106,12 @@ public class Frame extends javax.swing.JFrame {
 
         quitButton.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("/img/icons8-sortie-filled-20.png")));
         quitButton.setText("Quitter");
+        
+        /******************************************\
+         * 
+         * 				ACTIONS
+         * 
+        \******************************************/
         quitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
             	if (verifQuitFrame())
@@ -103,9 +120,15 @@ public class Frame extends javax.swing.JFrame {
             		setVisible(true);
             }
         });
+        
+        addButton.addActionListener(new ActionListener() {
 
-        setJMenuBar(menuBar);
-
+			public void actionPerformed(ActionEvent evt) {
+				formDialogProduct.setVisible(true);
+			}
+		});
+        
+        
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(

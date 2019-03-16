@@ -90,7 +90,18 @@ public class FormDialogProduct extends javax.swing.JFrame {
      * @author amolixs
      */
     public FormDialogProduct() {
+    	configureFrame();
         initComponents();
+    }
+    
+    /**
+     * Méthode qui permet de configurer la fenetre
+     * @author amolixs
+     */
+    public void configureFrame() {
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+        setTitle("*-Create product-*");
     }
     
     /**
@@ -108,11 +119,9 @@ public class FormDialogProduct extends javax.swing.JFrame {
     	textFieldOrigin = new javax.swing.JTextField();
         createButton = new javax.swing.JButton();
         quitButton = new javax.swing.JButton();
-        drinkLabel = new javax.swing.JLabel();
+        originLabel = new javax.swing.JLabel();
         checkButtonIsADrink = new javax.swing.JCheckBox();
         buttonImg = new javax.swing.JButton();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         titleLabel.setText("Création produit");
 
