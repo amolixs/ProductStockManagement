@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import be.amolixs.dao.ProductEditorDao;
@@ -122,6 +123,10 @@ public class FormDialogProduct extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         setTitle("*-Create product-*");
+        JLabel l = new JLabel();
+        String text = new String();
+
+        add(l);
     }
     
     /**
@@ -150,7 +155,7 @@ public class FormDialogProduct extends javax.swing.JFrame {
         originLabel = new javax.swing.JLabel();
         checkButtonIsADrink = new javax.swing.JCheckBox();
         buttonImg = new javax.swing.JButton();
-
+      
         titleLabel.setText("Création produit");
 
         nameLabel.setText("Nom : ");
