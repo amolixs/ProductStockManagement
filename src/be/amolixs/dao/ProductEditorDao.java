@@ -2,7 +2,13 @@ package be.amolixs.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.text.Utilities;
 
 /**
  * Classe qui permet de gérer les produits
@@ -60,7 +66,7 @@ public class ProductEditorDao {
 			connection = daoFactory.getConnection();
 			preparedStatement = connection.prepareStatement("INSERT INTO Product(id, name, price,"
 					+ "isADrink, origin, pathImage) VALUES(?, ?, ?, ?, ?, ?);");
-			preparedStatement.setInt(1, 1);
+			preparedStatement.setInt(1, 4);
 			preparedStatement.setString(2, productDao.getName());
 			preparedStatement.setInt(3, productDao.getPrice());
 			preparedStatement.setString(4, productDao.getIsADrink());
@@ -70,5 +76,61 @@ public class ProductEditorDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * Méthode qui permet de renvoyé tous les produits
+	 * @author amolixs
+	 * @return
+	 * 		Le texte de description
+	 */
+	public List<ProductDao> display() {
+		List<ProductDao> products = new ArrayList<>();
+		Connection connection = null;
+		Statement statement = null;
+		ResultSet res = null;
+		try {	
+			connection = daoFactory.getConnection();
+			statement = connection.createStatement();
+			res = statement.executeQuery("SELECT * FROM Product;");
+			while (res.next()) {
+				String name = res.getString("name");
+				int price = res.getInt("price");
+				String origin = res.getString("origin");
+				String isADrink = res.getString("isADrink");
+				String pathImage = res.getString("pathImage");
+				ProductDao product = new ProductDao(name, price, origin, pathImage, isADrink);
+				products.add(product);
+				
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return products;
+	}
+	
+	/**
+	 * Méthode qui permet de récupérer l'url des images des produits
+	 * @author amolixs
+	 */
+	public String getPathImage() {
+		String pathImage = "";
+		Connection connection = null;
+		Statement statement = null;
+		ResultSet res = null;
+		try {	
+			connection = daoFactory.getConnection();
+			statement = connection.createStatement();
+			res = statement.executeQuery("SELECT * FROM Product;");
+			while (res.next()) {
+				 pathImage = res.getString("pathImage");
+				 System.out.println(pathImage);
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return pathImage;
 	}
 }

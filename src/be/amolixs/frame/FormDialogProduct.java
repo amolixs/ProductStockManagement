@@ -123,10 +123,6 @@ public class FormDialogProduct extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         setTitle("*-Create product-*");
-        JLabel l = new JLabel();
-        String text = new String();
-
-        add(l);
     }
     
     /**
@@ -164,17 +160,6 @@ public class FormDialogProduct extends javax.swing.JFrame {
 
         originLabel.setText("Origin :");
 
-        textFieldName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
-        textFieldPrice.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
 
         createButton.setText("Créer");
         createButton.setToolTipText("");
@@ -218,6 +203,7 @@ public class FormDialogProduct extends javax.swing.JFrame {
 		});
         
         quitButton.setText("Quitter");
+        quitButton.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("/img/icons8-sortie-filled-20.png")));
         drinkLabel.setText(" Buvable : ");
         drinkLabel.setToolTipText("");
         checkButtonIsADrink.setText("buvable");
@@ -291,13 +277,5 @@ public class FormDialogProduct extends javax.swing.JFrame {
         );
 
         pack();
-    }                      
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
-    }                                           
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
-    }                                                                              
+    }                                                                                                  
 }

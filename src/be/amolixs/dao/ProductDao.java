@@ -89,11 +89,12 @@ public class ProductDao {
 	 * @param isADrink
 	 * 		Boolean sous forme de string pou savoir si le produit est buvable ou non
 	 */
-	public ProductDao(String name, String origin, String pathImage, String isADrink) {
+	public ProductDao(String name, int price, String origin, String pathImage, String isADrink) {
 		this.name = name;
 		this.origin = origin;
 		this.pathImage = pathImage;
 		this.isADrink = isADrink;
+		this.price = price;
 	}
 	
 	/****************************************************\
