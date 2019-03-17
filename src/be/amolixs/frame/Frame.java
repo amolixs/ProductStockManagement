@@ -19,6 +19,7 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JButton quitButton;
     private javax.swing.JLabel jLabel1;
     private FormDialogProduct formDialogProduct;
+    private FormViewProduct formViewProduct;
     
     
     /**
@@ -36,6 +37,7 @@ public class Frame extends javax.swing.JFrame {
      */
     public void init() {
     	this.formDialogProduct = new FormDialogProduct();
+    	this.formViewProduct = new FormViewProduct();
     }
     
     /**
@@ -127,6 +129,12 @@ public class Frame extends javax.swing.JFrame {
 
 			public void actionPerformed(ActionEvent evt) {
 				formDialogProduct.setVisible(true);
+			}
+		});
+        
+        displayButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				formViewProduct.setVisible(true);
 			}
 		});
         

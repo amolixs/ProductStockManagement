@@ -1,5 +1,7 @@
 package be.amolixs.frame;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
 
 /**
  * Classe qui permet de gérer la fenetre pour l'affichage des produits
@@ -24,6 +26,12 @@ public class FormViewProduct extends javax.swing.JFrame {
 	 * @author amolixs
 	 */
 	private javax.swing.JLabel labelTitle;
+	
+	/**
+	 * Button quitter
+	 * @author amolixs
+	 */
+	private JButton quitButton;
 
 	/**
 	 * Constructeur
@@ -41,14 +49,19 @@ public class FormViewProduct extends javax.swing.JFrame {
 
         labelDescription = new javax.swing.JLabel();
         labelImg = new javax.swing.JLabel();
+        labelTitle = new JLabel();
+        quitButton = new JButton("Quitter");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         labelTitle.setText("Affiché produits");
 
         labelImg.setText("jLabel2");
+        
+        labelDescription.setText("desc");
 
-        labelImg.setText("jLabel3");
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -62,8 +75,11 @@ public class FormViewProduct extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelDescription)
-                            .addComponent(labelImg))))
+                            .addComponent(labelImg)
+                            .addComponent(labelDescription)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(149, 149, 149)
+                        .addComponent(quitButton)))
                 .addContainerGap(158, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -75,7 +91,9 @@ public class FormViewProduct extends javax.swing.JFrame {
                 .addComponent(labelDescription)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(labelImg)
-                .addContainerGap(204, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
+                .addComponent(quitButton)
+                .addContainerGap())
         );
 
         pack();
