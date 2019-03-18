@@ -143,10 +143,11 @@ public class ProductEditorDao {
 	 */
 	public void delete(int id) throws SQLException {
 		Connection connection = null;
-		Statement statement = null;
+		PreparedStatement statement = null;
 		
 		connection = daoFactory.getConnection();
-		statement = connection.createStatement();
-		statement.executeQuery("DELETE FROM Product WHERE id = " + id + ";");
+		statement = connection.prepareStatement("DELETE FROM Product WHERE id=?;");
+		statement.setInt(1, id);
+		statement.executeUpdate();
 	}
 }

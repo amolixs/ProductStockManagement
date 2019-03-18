@@ -1,7 +1,9 @@
 package be.amolixs.frame;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import be.amolixs.dao.ProductEditorDao;
 
@@ -63,6 +65,7 @@ public class FormDeleteProduct extends javax.swing.JFrame {
      * @author amolixs
      */
     public FormDeleteProduct() {
+    	init();
         initComponents();
     }
     
@@ -121,7 +124,15 @@ public class FormDeleteProduct extends javax.swing.JFrame {
         deleteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				int id = Integer.parseInt(inputId.getText());
-				System.out.println(id);
+				try {
+					productEditorDao.delete(id);
+					resultLabel.setText("Réussie !");
+					resultLabel.setForeground(Color.green);
+				} catch (SQLException e) {
+					e.printStackTrace();
+					resultLabel.setText("Erreur !");
+					resultLabel.setForeground(Color.red);
+				}
 			}
 		});
 
