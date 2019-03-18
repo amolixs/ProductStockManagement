@@ -1,5 +1,10 @@
 package be.amolixs.frame;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import be.amolixs.dao.ProductEditorDao;
+
 /**
  * Classe qui permet de gérer la fenetre pour supprimé des produits
  * @author amolixs
@@ -47,6 +52,11 @@ public class FormDeleteProduct extends javax.swing.JFrame {
 	 */
 	private javax.swing.JTextField inputId;
 	
+	/**
+	 * Object de type ProductEditorDao
+	 * @author amolixs
+	 */
+	private ProductEditorDao productEditorDao;
 	
 	/**
      * Constructeur
@@ -54,6 +64,14 @@ public class FormDeleteProduct extends javax.swing.JFrame {
      */
     public FormDeleteProduct() {
         initComponents();
+    }
+    
+    /**
+     * Méthode qui permet d'initialisé les attributs
+     * @author amolixs
+     */
+    public void init() {
+    	this.productEditorDao = new ProductEditorDao();
     }
     
     /**
@@ -88,7 +106,24 @@ public class FormDeleteProduct extends javax.swing.JFrame {
         deleteButton.setToolTipText("");
 
         labelForTextField.setText("Entrez id du produit :");
+        
+        /******************************************\
+         * 
+         * 				ACTIONS
+         * 
+        \******************************************/
+        quitButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				setVisible(false);
+			}
+		});
 
+        deleteButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				int id = Integer.parseInt(inputId.getText());
+				System.out.println(id);
+			}
+		});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

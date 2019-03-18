@@ -133,4 +133,20 @@ public class ProductEditorDao {
 		
 		return pathImage;
 	}
+	
+	/**
+	 * Méthode qui permet de supprimé un produit grace a son id
+	 * @author amolixs
+	 * @param id
+	 * 		Id du produit à supprimé
+	 * @throws SQLException 
+	 */
+	public void delete(int id) throws SQLException {
+		Connection connection = null;
+		Statement statement = null;
+		
+		connection = daoFactory.getConnection();
+		statement = connection.createStatement();
+		statement.executeQuery("DELETE FROM Product WHERE id = " + id + ";");
+	}
 }
