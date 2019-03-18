@@ -8,7 +8,6 @@ import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Style;
@@ -24,6 +23,12 @@ import be.amolixs.dao.ProductEditorDao;
  *
  */
 public class FormViewProduct extends javax.swing.JFrame {
+	/**
+	 * Serial de la classe
+	 * @author amolixs
+	 */
+	private static final long serialVersionUID = 1L;
+
 	/**
 	 * Label qui permet d'affiché la description complète du produit
 	 * @author amolixs
@@ -111,11 +116,10 @@ public class FormViewProduct extends javax.swing.JFrame {
         for (ProductDao productDao : products) {
             StyledDocument document = (StyledDocument)textPane.getDocument();
             Style imagesStyle = document.addStyle("ImageStyle", null);
-            Style textStyle = document.addStyle("TextStyle", null);
             StyleConstants.setIcon(imagesStyle, new ImageIcon(productDao.getPathImage()));
             try {
     			document.insertString(document.getLength(), "\uFFFC", imagesStyle);
-    			document.insertString(document.getLength(), "\n" + "Nom : " + productDao.getName() + "\n" + "Origin : " + productDao.getOrigin() + "\n" + "Prix : " + productDao.getPrice() + "\n" + "Boisson : " + productDao.getIsADrink() + "\n", null);
+    			document.insertString(document.getLength(), "\n" + "Id : " + productDao.getId() + "\n" + "Nom : " + productDao.getName() + "\n" + "Origin : " + productDao.getOrigin() + "\n" + "Prix : " + productDao.getPrice() + "\n" + "Boisson : " + productDao.getIsADrink() + "\n", null);
     		} catch (BadLocationException e) {
     			e.printStackTrace();
     		}  	

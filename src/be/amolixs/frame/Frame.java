@@ -11,14 +11,57 @@ import javax.swing.JOptionPane;
  * @author amolixs
  */
 public class Frame extends javax.swing.JFrame {
+	/**
+	 * Serial de la fenetre
+	 * @author amolixs
+	 */
 	private static final long serialVersionUID = 1L;
+	
+	/**
+	 * Button ajouter
+	 * @author amolixs
+	 */
 	private javax.swing.JButton addButton;
+	
+	/**
+	 * Button modifié
+	 * @author amolixs
+	 */
     private javax.swing.JButton updateButton;
+    
+    /**
+     * Button supprimé
+     * @author amolixs
+     */
     private javax.swing.JButton deleteButton;
+    
+    /**
+     * Button affiché
+     * @author amolixs
+     */
     private javax.swing.JButton displayButton;
+    
+    /**
+     * Button quitter
+     * @author amolixs
+     */
     private javax.swing.JButton quitButton;
+    
+    /**
+     * Label qui va servir d'icon
+     */
     private javax.swing.JLabel jLabel1;
+    
+    /**
+     * Object de type FormDialogProduct
+     * @author amolixs
+     */
     private FormDialogProduct formDialogProduct;
+    
+    /**
+     * Object de type FormViewProduct
+     * @author amolixs
+     */
     private FormViewProduct formViewProduct;
     
     

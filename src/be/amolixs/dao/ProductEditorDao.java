@@ -8,8 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.text.Utilities;
-
 /**
  * Classe qui permet de gérer les produits
  * @version 1.0
@@ -66,7 +64,7 @@ public class ProductEditorDao {
 			connection = daoFactory.getConnection();
 			preparedStatement = connection.prepareStatement("INSERT INTO Product(id, name, price,"
 					+ "isADrink, origin, pathImage) VALUES(?, ?, ?, ?, ?, ?);");
-			preparedStatement.setInt(1, 4);
+			preparedStatement.setInt(1, (int) (Math.random() * (100000 - 0)));
 			preparedStatement.setString(2, productDao.getName());
 			preparedStatement.setInt(3, productDao.getPrice());
 			preparedStatement.setString(4, productDao.getIsADrink());
@@ -94,12 +92,14 @@ public class ProductEditorDao {
 			statement = connection.createStatement();
 			res = statement.executeQuery("SELECT * FROM Product;");
 			while (res.next()) {
+				int id = res.getInt("id");
+				System.out.println(id);
 				String name = res.getString("name");
 				int price = res.getInt("price");
 				String origin = res.getString("origin");
 				String isADrink = res.getString("isADrink");
 				String pathImage = res.getString("pathImage");
-				ProductDao product = new ProductDao(name, price, origin, pathImage, isADrink);
+				ProductDao product = new ProductDao(id, name, price, origin, pathImage, isADrink);
 				products.add(product);
 				
 			}

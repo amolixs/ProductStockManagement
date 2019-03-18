@@ -14,6 +14,12 @@ public class ProductDao {
 	private String name;
 	
 	/**
+	 * Id du produit
+	 * @author amolixs
+	 */
+	private int id;
+	
+	/**
 	 * Prix du produit
 	 */
 	private int price;
@@ -46,6 +52,7 @@ public class ProductDao {
 		this.isADrink = "false";
 		this.origin = "";
 		this.pathImage = "";
+		this.id = 0;
 	}
 	
 	/**
@@ -80,6 +87,8 @@ public class ProductDao {
 	/**
 	 * Méthode qui permet d'initialisé le nom du produit, l'origin, et le chemon pour l'image.
 	 * @author amolixs
+	 * @author amolixs
+	 * 		Id du produit
 	 * @param name
 	 * 		Le nom du produit
 	 * @param origin
@@ -89,8 +98,9 @@ public class ProductDao {
 	 * @param isADrink
 	 * 		Boolean sous forme de string pou savoir si le produit est buvable ou non
 	 */
-	public ProductDao(String name, int price, String origin, String pathImage, String isADrink) {
+	public ProductDao(int id, String name, int price, String origin, String pathImage, String isADrink) {
 		this.name = name;
+		this.id = id;
 		this.origin = origin;
 		this.pathImage = pathImage;
 		this.isADrink = isADrink;
@@ -111,6 +121,16 @@ public class ProductDao {
 	 */
 	public String getName() {
 		return name;
+	}
+	
+	/**
+	 * Guetteur qui permet de retourné l'id du produit
+	 * @author amolixs
+	 * @return
+	 * 		L'id du produit
+	 */
+	public int getId() {
+		return id;
 	}
 	
 	/**
@@ -164,6 +184,16 @@ public class ProductDao {
 	 */
 	public void setADrink(String isADrink) {
 		this.isADrink = isADrink;
+	}
+	
+	/**
+	 * Suetteur qui permet de mofifié l'attribut id
+	 * @author amolixs
+	 * @param id
+	 * 		L'id du produit
+	 */
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	/**
