@@ -64,6 +64,11 @@ public class Frame extends javax.swing.JFrame {
      */
     private FormViewProduct formViewProduct;
     
+    /**
+     * Object de type formDeleteProduct
+     * @author amolixs
+     */
+    private FormDeleteProduct formDeleteProduct;
     
     /**
      * Constructeur.
@@ -81,6 +86,7 @@ public class Frame extends javax.swing.JFrame {
     public void init() {
     	this.formDialogProduct = new FormDialogProduct();
     	this.formViewProduct = new FormViewProduct();
+    	this.formDeleteProduct = new FormDeleteProduct();
     }
     
     /**
@@ -178,6 +184,12 @@ public class Frame extends javax.swing.JFrame {
         displayButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				formViewProduct.setVisible(true);
+			}
+		});
+        
+        deleteButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				formDeleteProduct.setVisible(true);
 			}
 		});
         
