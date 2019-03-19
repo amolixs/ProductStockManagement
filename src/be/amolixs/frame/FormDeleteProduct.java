@@ -122,8 +122,12 @@ public class FormDeleteProduct extends javax.swing.JFrame {
 		});
 
         deleteButton.addActionListener(new ActionListener() {
+        	int id = 0;
 			public void actionPerformed(ActionEvent evt) {
-				int id = Integer.parseInt(inputId.getText());
+				try {
+					id = Integer.parseInt(inputId.getText());
+				}catch (NumberFormatException e) {
+				}
 				try {
 					productEditorDao.delete(id);
 					resultLabel.setText("Réussie !");

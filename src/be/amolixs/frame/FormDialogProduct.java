@@ -175,7 +175,11 @@ public class FormDialogProduct extends javax.swing.JFrame {
             	String originProduct = textFieldOrigin.getText();
             	String pathFileImage = pathFileImg;
             	String isADrink = "";
-            	int priceProduct = Integer.parseInt(textFieldPrice.getText());
+            	int priceProduct = 0; 
+            	try {
+            		Integer.parseInt(textFieldPrice.getText());
+            	}catch (NumberFormatException e) {
+				}
             	if (checkButtonIsADrink.isSelected())
             		isADrink = "true";
             	else
