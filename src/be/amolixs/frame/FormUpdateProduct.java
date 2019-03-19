@@ -68,16 +68,39 @@ public class FormUpdateProduct extends javax.swing.JFrame {
     private javax.swing.JLabel priceLabel;
     
     /**
-     * Label pour le isDrinked
      * @author amolixs
      */
     private javax.swing.JLabel jLabel6;
+    
+    /**
+     * Label pour le isDrinked
+     * @author amolixs
+     */
     private javax.swing.JLabel labelIsDrinked;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JMenuBar menuBar; 
+    
+    /**
+     * Permet d'entré l'id du produit à modifié
+     * @author amolixs
+     */
+    private javax.swing.JTextField inputId;
+    
+    /**
+     * Permet d'entré le nom à modifié
+     * @author amolixs
+     */
+    private javax.swing.JTextField inputName;
+    
+    /**
+     * Permet d'entré l'origin à mofifié
+     * @author amolixs
+     */
+    private javax.swing.JTextField inputOrigin;
+    
+    /**
+     * Permet d'entré le prix à mofifié
+     * @author amolixs
+     */
+    private javax.swing.JTextField inputPrice;
 	
 	/**
 	 * Constructeur
@@ -88,6 +111,16 @@ public class FormUpdateProduct extends javax.swing.JFrame {
     }
     
     /**
+     * Méthode qui permet de configurer la fenetre
+     * @author amolixs
+     */
+    public void configure() {
+    	setTitle("*-Update product-*");
+    	setResizable(false);
+    	setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    }
+    
+    /**
      * Méhode qui permet d'initialisé les composants de la fenetre
      * @author amolixs
      */
@@ -95,7 +128,7 @@ public class FormUpdateProduct extends javax.swing.JFrame {
 
         titleLabel = new javax.swing.JLabel();
         idProductLabel = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        inputId = new javax.swing.JTextField();
         nameLabel = new javax.swing.JLabel();
         originLabel = new javax.swing.JLabel();
         priceLabel = new javax.swing.JLabel();
@@ -105,12 +138,11 @@ public class FormUpdateProduct extends javax.swing.JFrame {
         buttonImageUpdate = new javax.swing.JButton();
         buttonValidUpdate = new javax.swing.JButton();
         buttonQuit = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        menuBar = new javax.swing.JMenuBar();
+        inputName = new javax.swing.JTextField();
+        inputOrigin = new javax.swing.JTextField();
+        inputPrice = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        
 
         titleLabel.setText("Modifié un produit");
 
@@ -137,8 +169,7 @@ public class FormUpdateProduct extends javax.swing.JFrame {
 
         buttonQuit.setIcon(new javax.swing.ImageIcon("/home/amolixs/eclipse-workspace/ProductStockManagement/src/img/icons8-sortie-filled-20.png")); // NOI18N
         buttonQuit.setText("Quitter");
-        setJMenuBar(menuBar);
-
+        
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -158,7 +189,7 @@ public class FormUpdateProduct extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(idProductLabel)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(inputId, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel6)
@@ -182,9 +213,9 @@ public class FormUpdateProduct extends javax.swing.JFrame {
                                 .addComponent(priceLabel)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
-                            .addComponent(jTextField4)
-                            .addComponent(jTextField2))))
+                            .addComponent(inputOrigin, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                            .addComponent(inputPrice)
+                            .addComponent(inputName))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -195,19 +226,19 @@ public class FormUpdateProduct extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idProductLabel)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameLabel)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(originLabel)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputOrigin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(priceLabel)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelIsDrinked)
@@ -221,7 +252,6 @@ public class FormUpdateProduct extends javax.swing.JFrame {
                     .addComponent(buttonQuit)
                     .addComponent(buttonValidUpdate)))
         );
-
         pack();
     }                                                                         
 }
