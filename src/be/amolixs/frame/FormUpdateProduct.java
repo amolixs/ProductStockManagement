@@ -1,5 +1,8 @@
 package be.amolixs.frame;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /**
  * Classe qui permet de gérer la fenetre pour mettre les produits à jour
  * @version 1.0
@@ -107,6 +110,7 @@ public class FormUpdateProduct extends javax.swing.JFrame {
 	 * @author amolixs
 	 */
     public FormUpdateProduct() {
+    	configure();
         initComponents();
     }
     
@@ -162,13 +166,25 @@ public class FormUpdateProduct extends javax.swing.JFrame {
 
         buttonValidUpdate.setIcon(new javax.swing.ImageIcon("/home/amolixs/eclipse-workspace/ProductStockManagement/src/img/icons8-approuver-et-mettre-à-jour-filled-20.png")); // NOI18N
         buttonValidUpdate.setText("Modifié");
+        
+        buttonQuit.setIcon(new javax.swing.ImageIcon("/home/amolixs/eclipse-workspace/ProductStockManagement/src/img/icons8-sortie-filled-20.png")); // NOI18N
+        buttonQuit.setText("Quitter");
+        
+        /******************************************\
+         * 
+         * 				ACTIONS
+         * 
+        \******************************************/
         buttonValidUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
             }
         });
-
-        buttonQuit.setIcon(new javax.swing.ImageIcon("/home/amolixs/eclipse-workspace/ProductStockManagement/src/img/icons8-sortie-filled-20.png")); // NOI18N
-        buttonQuit.setText("Quitter");
+        
+        buttonQuit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				setVisible(false);
+			}
+		});
         
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
