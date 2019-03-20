@@ -65,6 +65,7 @@ public class FormDeleteProduct extends javax.swing.JFrame {
      * @author amolixs
      */
     public FormDeleteProduct() {
+    	configure();
     	init();
         initComponents();
     }

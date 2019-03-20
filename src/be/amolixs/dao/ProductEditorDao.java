@@ -150,4 +150,46 @@ public class ProductEditorDao {
 		statement.setInt(1, id);
 		statement.executeUpdate();
 	}
+	
+	public void update(int id, String name, String origin, int price, String isADrink, String pathImage) throws SQLException {
+		Connection connection = null;
+		PreparedStatement statement = null;
+		connection = daoFactory.getConnection();
+		
+		if (!name.isEmpty()) {
+			statement = connection.prepareStatement("UPDATE Product SET name=? WHERE id=?");
+			statement.setString(1, name);
+			statement.setInt(2, id);
+			statement.executeUpdate();
+		}
+		
+		if (!origin.isEmpty()) {
+			System.out.println("iiiiiiiiiii");
+			statement = connection.prepareStatement("UPDATE Product SET origin=? WHERE id=?");
+			statement.setString(1, origin);
+			statement.setInt(2, id);
+			statement.executeUpdate();
+		}
+		
+		if (price != 0 && price > 0) {
+			statement = connection.prepareStatement("UPDATE Product SET price=? WHERE id=?");
+			statement.setInt(1, price);
+			statement.setInt(2, id);
+			statement.executeUpdate();
+		}
+		
+		if (!isADrink.isEmpty()) {
+			statement = connection.prepareStatement("UPDATE Product SET isADrink=? WHERE id=?");
+			statement.setString(1, isADrink);
+			statement.setInt(2, id);
+			statement.executeUpdate();
+		}
+		
+		if (!pathImage.isEmpty()) {
+			statement = connection.prepareStatement("UPDATE Product SET pathImage=? WHERE id=?");
+			statement.setString(1, pathImage);
+			statement.setInt(2, id);
+			statement.executeUpdate();
+		}
+	}
 }

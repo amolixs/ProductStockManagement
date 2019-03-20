@@ -2,6 +2,12 @@ package be.amolixs.frame;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+import be.amolixs.dao.ProductEditorDao;
 
 /**
  * Classe qui permet de gérer la fenetre pour mettre les produits à jour
@@ -104,12 +110,25 @@ public class FormUpdateProduct extends javax.swing.JFrame {
      * @author amolixs
      */
     private javax.swing.JTextField inputPrice;
+    
+    /**
+     * Object de type productEditorDao
+     * @author amolixs
+     */
+    private ProductEditorDao productEditorDao;
+    
+    /**
+     * Contient le chemin vers la nouvelle image
+     * @author amolixs
+     */
+    private String pathFileImg;
 	
 	/**
 	 * Constructeur
 	 * @author amolixs
 	 */
     public FormUpdateProduct() {
+    	init();
     	configure();
         initComponents();
     }
@@ -122,6 +141,28 @@ public class FormUpdateProduct extends javax.swing.JFrame {
     	setTitle("*-Update product-*");
     	setResizable(false);
     	setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    }
+    
+    /**
+     * Méthode qui permet d'initialisé les attributs de la classe
+     * @author amolixs
+     */
+    public void init() {
+    	this.productEditorDao = new ProductEditorDao();
+    	this.pathFileImg = "";
+    }
+    
+    /**
+     * Méthode qui permet de renvoyer true si le checkButton est coché
+     * @author amolixs
+     * @return
+     * 		true ou false
+     */
+    public String getValueCheckButton() {
+    	if (checkButtonIsDrinkUpdate.isSelected())
+    		return "true";
+    	else
+    		return "false";
     }
     
     /**
@@ -175,8 +216,36 @@ public class FormUpdateProduct extends javax.swing.JFrame {
          * 				ACTIONS
          * 
         \******************************************/
+        
+        buttonImageUpdate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				JFileChooser fileChooser = new JFileChooser();
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG & PNG", "png", "jpg");
+				fileChooser.setFileFilter(filter);
+				int returnVal = fileChooser.showOpenDialog(null);
+				if (returnVal == JFileChooser.APPROVE_OPTION) {
+					pathFileImg = fileChooser.getSelectedFile().getPath().toString();
+				}
+			}
+		});
+        
         buttonValidUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	int id = 0;
+            	int price = 0;
+            	try {
+            		id = Integer.parseInt(inputId.getText());
+            		price = Integer.parseInt(inputPrice.getText());
+            	}catch (NumberFormatException e) {
+				}
+            	try {
+            		if (getValueCheckButton() == "true") 
+            			productEditorDao.update(id, inputName.getText(), inputOrigin.getText(), price, "true", pathFileImg);
+            		else
+            			productEditorDao.update(id, inputName.getText(), inputOrigin.getText(), price, "false", pathFileImg);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
             }
         });
         

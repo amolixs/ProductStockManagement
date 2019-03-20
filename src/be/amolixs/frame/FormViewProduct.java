@@ -8,6 +8,7 @@ import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Style;
@@ -57,7 +58,7 @@ public class FormViewProduct extends javax.swing.JFrame {
 	 * Liste qui va permettre de contenir la liste de tous les produits
 	 * @author amolixs
 	 */
-	List<ProductDao> products;
+	private List<ProductDao> products;
 	
 	/**
 	 * Object de type productEditorDao qui permet de listé les produits
@@ -70,6 +71,12 @@ public class FormViewProduct extends javax.swing.JFrame {
 	 * @author amolixs
 	 */
 	private JTextPane textPane;
+	
+	/**
+	 * scroll pane
+	 * @author amolixs
+	 */
+	private JScrollPane scrollPane;
 
 	/**
 	 * Constructeur
@@ -97,6 +104,7 @@ public class FormViewProduct extends javax.swing.JFrame {
     public void configure() {
     	setTitle("*-Display product-*");
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
     }
     
     /**
@@ -112,7 +120,6 @@ public class FormViewProduct extends javax.swing.JFrame {
         quitButton.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("/img/icons8-sortie-filled-20.png")));
         labelTitle.setText("Affiché produits");
         products = productEditorDao.display();
-        textPane.setEditable(false);
         for (ProductDao productDao : products) {
             StyledDocument document = (StyledDocument)textPane.getDocument();
             Style imagesStyle = document.addStyle("ImageStyle", null);
@@ -140,6 +147,9 @@ public class FormViewProduct extends javax.swing.JFrame {
 				setVisible(false);
 			}
 		});
+        
+        scrollPane = new JScrollPane(textPane);
+        
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -153,7 +163,7 @@ public class FormViewProduct extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelImg)
-                            .addComponent(textPane)))
+                            .addComponent(scrollPane)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(149, 149, 149)
                         .addComponent(quitButton)))
@@ -165,7 +175,7 @@ public class FormViewProduct extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(labelTitle)
                 .addGap(18, 18, 18)
-                .addComponent(textPane)
+                .addComponent(scrollPane)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(labelImg)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
